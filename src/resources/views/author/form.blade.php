@@ -8,7 +8,7 @@
         <div class="alert alert-danger">Lūdzu, novērsiet radušās kļūdas!</div>
     @endif
  
-    <form method="post" action="/authors/put">
+    <form method="post" action="{{ $author->exists ? '/authors/pathch' . $author->id : '/authors/put' }}">
         @csrf
  
         <div class="mb-3">
@@ -18,17 +18,21 @@
                 type="text" 
                 class="form-control @error('name') is-invalid @enderror" 
                 id="author-name" 
-                name="name">
- 
+                name="name"
+                value="{{ old('name', $author->name) }}"
+            >
+
             @error('name')
                 <p class="invalid-feedback">{{ $errors->first('name') }}</p>
             @enderror
  
         </div>
  
-        <button type="submit" class="btn btn-primary">Pievienot</button>
+        <button type="submit" class="btn btn-primary">{{ $author->exists ? 'Rediget' : 'Pievienot'}}</button>
  
     </form>
  
 @endsection
+
+
 
