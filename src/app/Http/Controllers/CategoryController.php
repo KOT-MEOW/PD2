@@ -61,21 +61,22 @@ class CategoryController extends Controller implements HasMiddleware
         return redirect('/categories');
     }
 
-/*
-    // display Author edit form
-    public function update(Author $author): View
+
+    // display Category edit form
+    public function update(Category $category): View
     {
         return view(
-            'author.form',
+            'category.form',
             [
-                'title' => 'Rediget autoru',
-                'author' => $author,
+                'title' => 'Rediget category',
+                'category' => $category,
             ]
         );
     }
-    
-    // update Author data
-    public function patch(Author $author, Request $request): RedirectResponse
+
+ 
+    // update Category data
+    public function patch(Category $category, Request $request): RedirectResponse
     {
          $validatedData = $request->validate([
             'name' => 'required|string|max:255',
@@ -84,18 +85,15 @@ class CategoryController extends Controller implements HasMiddleware
         $author->name = $validatedData['name'];
         $author->save();
     
-        return redirect('/authors');
+        return redirect('/categories');
     }
-
-    // delete Author
-    public function delete(Author $author): RedirectResponse
+   
+    // delete Category
+    public function delete(Category $category): RedirectResponse
     {
         // šeit derētu pārbaude, kas neļauj dzēst autoru, ja tas piesaistīts eksistējošām grāmatām
-        $author->delete();
-        return redirect('/authors');
+        $category->delete();
+        return redirect('/categories');
     }
-
-
-    */
 
 }
