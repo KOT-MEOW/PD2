@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DataController;
 
 // Auth routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -38,3 +39,7 @@ Route::get('/categories/update/{category}', [CategoryController::class, 'update'
 Route::post('/categories/patch/{category}', [CategoryController::class, 'patch']);
 Route::post('/categories/delete/{category}', [CategoryController::class, 'delete']);
 
+// Data/API
+Route::get('/data/get-top-books', [DataController::class, 'getTopBooks']);
+Route::get('/data/get-book/{book}', [DataController::class, 'getBook']);
+Route::get('/data/get-related-books/{book}', [DataController::class, 'getRelatedBooks']);
