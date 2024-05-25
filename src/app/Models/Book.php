@@ -23,4 +23,18 @@ class Book extends Model
         return $this->belongsTo(Author::class);
     }
 
+    public function jsonSerialize(): mixed
+    {
+        return [
+            'id' => intval($this->id),
+            'name' => $this->name,
+            'description' => $this->description,
+            'author' => $this->author->name,
+            'categoty' => ($this->category ? $this->category->name : ''),
+            'price' => number_format($this->price, 2),
+            'year' => intval($this->year),
+            'image' => asset('images/' . $this->image),
+        ];
+    }
+
 }
