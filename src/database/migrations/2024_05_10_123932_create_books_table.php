@@ -15,6 +15,7 @@ return new class extends Migration
          Schema::create('books', function (Blueprint $table) {
              $table->id();
              $table->foreignId('author_id');
+             $table->foreignId('category_id');
              $table->string('name', 256);
              $table->text('description')->nullable();
              $table->decimal('price', 8, 2)->nullable();
@@ -22,7 +23,9 @@ return new class extends Migration
              $table->string('image', 256)->nullable();
              $table->boolean('display');
              $table->timestamps();
+
              $table->foreign('author_id')->references('id')->on('authors');
+             $table->foreign('category_id')->references('id')->on('categories');
          });
      }
  

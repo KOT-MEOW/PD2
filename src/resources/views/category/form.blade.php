@@ -8,7 +8,7 @@
         <div class="alert alert-danger">Lūdzu, novērsiet radušās kļūdas!</div>
     @endif
  
-    <form method="post" action="{{ $category->exists ? '/categories/pathch' . $category->id : '/categories/put' }}">
+    <form method="post" action="{{ $category->exists ? '/categories/patch' . $category->id : '/categories/put' }}">
         @csrf
  
         <div class="mb-3">

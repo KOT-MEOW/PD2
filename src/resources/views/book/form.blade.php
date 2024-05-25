@@ -54,7 +54,34 @@
                 <p class="invalid-feedback">{{ $errors->first('author_id') }}</p>
             @enderror
         </div>
+    
 
+        <div class="mb-3">
+            <label for="book-category" class="form-label">category</label>
+
+            <select
+                id="book-category"
+                name="category_id"
+                class="form-select @error('category_id') is-invalid @enderror"
+            >
+                <option value="">Norādiet category</option>
+                    @foreach($categories as $category)
+                        <option
+                            value="{{ $category->id }}"
+                            @if ($category->id == old('category_id', $book->category->id ?? false)) selected @endif
+                        >{{ $category->name }}</option>
+                    @endforeach
+            </select>
+
+            @error('category_id')
+                <p class="invalid-feedback">{{ $errors->first('category_id') }}</p>
+            @enderror
+        </div>
+<?php
+ /*   
+
+ */
+?>
         <div class="mb-3">
             <label for="book-description" class="form-label">Apraksts</label>
 

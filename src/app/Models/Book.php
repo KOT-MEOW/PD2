@@ -13,14 +13,20 @@ class Book extends Model
     protected $fillable = [
         'name',
         'author_id',
+        'categories_id',
         'description',
         'price',
         'year',
     ];
 
     public function author(): BelongsTo
-    {
+    {   
         return $this->belongsTo(Author::class);
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
     public function jsonSerialize(): mixed
