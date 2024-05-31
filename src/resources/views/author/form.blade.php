@@ -8,7 +8,7 @@
         <div class="alert alert-danger">Lūdzu, novērsiet radušās kļūdas!</div>
     @endif
  
-    <form method="post" action="{{ $author->exists ? '/authors/pathch' . $author->id : '/authors/put' }}">
+    <form method="post" action="{{ $author->exists ? '/authors/patch' . $author->id : '/authors/put' }}">
         @csrf
  
         <div class="mb-3">
