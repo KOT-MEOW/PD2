@@ -26,3 +26,5 @@
 ---
 
 K. Immers, VeA, 2024
+
+[view-source:https://moodle.venta.lv/moodle/pluginfile.php/122051/mod_resource/content/1/pub.html?embed=1](https://moodle.venta.lv/moodle/pluginfile.php/122051/mod_resource/content/1/pub.html?embed=1)
