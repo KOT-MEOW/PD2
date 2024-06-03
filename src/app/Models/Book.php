@@ -26,7 +26,7 @@ class Book extends Model
     
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, "categories_id");
     }
 
     public function jsonSerialize(): mixed
@@ -36,7 +36,7 @@ class Book extends Model
             'name' => $this->name,
             'description' => $this->description,
             'author' => $this->author->name,
-            'categoty' => ($this->category ? $this->category->name : ''),
+            'category' => ($this->category ? $this->category->name : ''),
             'price' => number_format($this->price, 2),
             'year' => intval($this->year),
             'image' => asset('images/' . $this->image),

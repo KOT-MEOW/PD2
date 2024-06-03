@@ -28,7 +28,7 @@ class BookController extends Controller implements HasMiddleware
     public function list(): View
     {
         $items = Book::orderBy('name', 'asc')->get();
-    
+
         return view(
             'book.list',
             [
@@ -102,10 +102,11 @@ class BookController extends Controller implements HasMiddleware
     // validate and save book data
     private function saveBookData(Book $book, BookRequest $request): void
     {
+
         $validatedData = $request->validated();
-  
+        
+
         $book->fill($validatedData);
-        $book->categories_id = 0;
         $book->display = (bool) ($validatedData['display'] ?? false);
 
         if ($request->hasFile('image')) {

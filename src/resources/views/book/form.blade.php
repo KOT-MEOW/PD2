@@ -61,20 +61,20 @@
 
             <select
                 id="book-category"
-                name="category_id"
-                class="form-select @error('category_id') is-invalid @enderror"
+                name="categories_id"
+                class="form-select @error('categories_id') is-invalid @enderror"
             >
                 <option value="">Norādiet category</option>
                     @foreach($categories as $category)
                         <option
                             value="{{ $category->id }}"
-                            @if ($category->id == old('category_id', $book->category->id ?? false)) selected @endif
+                            @if ($category->id == old('categories_id', $book->category->id ?? false)) selected @endif
                         >{{ $category->name }}</option>
                     @endforeach
             </select>
 
-            @error('category_id')
-                <p class="invalid-feedback">{{ $errors->first('category_id') }}</p>
+            @error('categories_id')
+                <p class="invalid-feedback">{{ $errors->first('categories_id') }}</p>
             @enderror
         </div>
 <?php
